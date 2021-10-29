@@ -3,7 +3,6 @@
 error_reporting(-1);
 ini_set('display_errors', 1);
 
-echo "SOMETHINGGGGGGGGG";
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -25,6 +24,9 @@ $dotenv->safeLoad();
 
 // Instantiate App
 $app = AppFactory::create();
+// Set base path
+$app->setBasePath('/app');
+
 
 // Add error middleware
 $app->addErrorMiddleware(true, true, true);
