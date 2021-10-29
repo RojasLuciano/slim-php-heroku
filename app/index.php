@@ -17,7 +17,7 @@ $app->setBasePath('/app');
 $app->addErrorMiddleware(true, true, true);
 
 $app->get('[/]', function (Request $request, Response $response) {    
-    $response->getBody()->write("GET => Bienvenido!!! a SlimFramework//Actualizado?");
+    $response->getBody()->write("GET => Bienvenido!!! a SlimFramework//v2?");
     return $response;
 
 });
