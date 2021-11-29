@@ -79,8 +79,8 @@ $app->group('/comandas', function (RouteCollectorProxy $group) {
   $group->get('/ver/{codigo}/{npedido}', \ComandaApi::class . ':VerMisPedidos');
   $group->get('/traerUno/{codigo}', \ComandaApi::class . ':TraerUno');
   $group->get('/traerComandas', \ComandaApi::class . ':TraerTodos');
-  $group->get('/pdf', \FileManagerApi::class . ':ComandaPDF');
-  $group->get('/csv', \FileManagerApi::class . ':ComandaCSV');
+  $group->get('/c/pdf', \FileManagerApi::class . ':ComandaPDF');
+  $group->get('/c/csv', \FileManagerApi::class . ':ComandaCSV');
 
 });   
 
@@ -93,8 +93,8 @@ $app->group('/empleados', function (RouteCollectorProxy $group) {
   $group->get('[/]', \EmpleadoApi::class . ':TraerTodos');
   $group->post('/tomar_pedido', \EmpleadoApi::class . ':TomarUnPedido')->add(\VerificacionMiddleware::class . ':VerificarMozo'); //postman EMPLEADO TOMA PEDIDO
   $group->post('/entregar_pedido', \EmpleadoApi::class . ':EntregarUnPedido');  //postman EMPLEADO PREPARA PEDIDO
-   $group->get('/pdf', \FileManagerApi::class . ':EmpleadoPDF');
-   $group->get('/csv', \FileManagerApi::class . ':EmpleadoCSV');
+   $group->get('/e/pdf', \FileManagerApi::class . ':EmpleadoPDF');
+   $group->get('/e/csv', \FileManagerApi::class . ':EmpleadoCSV');
 });
 
 $app->group('/productos', function (RouteCollectorProxy $group) {
@@ -114,8 +114,8 @@ $app->group('/mesas', function (RouteCollectorProxy $group) {
   $group->put('/{codigo}', \MesaApi::class . ':ModificarUno')->add(\VerificacionMiddleware::class . ':VerificarMozo');        // ✓
   $group->get('/{codigo}', \MesaApi::class . ':TraerUno')->add(\VerificacionMiddleware::class . ':VerificarMozo');            // ✓
   $group->get('[/]', \MesaApi::class . ':TraerTodos');
-  $group->get('/pdf', \FileManagerApi::class . ':MesaPDF');
-  $group->get('/csv', \FileManagerApi::class . ':MesaCSV');                                                                        // ✓
+  $group->get('/m/pdf', \FileManagerApi::class . ':MesaPDF');
+  $group->get('/m/csv', \FileManagerApi::class . ':MesaCSV');                                                                        // ✓
 })->add(\VerificacionMiddleware::class . ':ValidarToken'); //->add(\VerificacionMiddleware::class . ':VerificarMozo');        // ✓
 
 
@@ -127,8 +127,8 @@ $app->group('/pedidos', function (RouteCollectorProxy $group) {
   $group->put('/{codigo}', \PedidoApi::class . ':ModificarUno')->add(\VerificacionMiddleware::class . ':VerificarMozo');    
   $group->get('/{codigo}', \PedidoApi::class . ':TraerUno')->add(\VerificacionMiddleware::class . ':VerificarMozo');           
   $group->get('[/]', \PedidoApi::class . ':TraerTodos');
-  $group->get('/pdf', \FileManagerApi::class . ':PedidoPDF');
-  $group->get('/csv', \FileManagerApi::class . ':PedidoCSV');                                                                       
+  $group->get('/p/pdf', \FileManagerApi::class . ':PedidoPDF');
+  $group->get('/p/csv', \FileManagerApi::class . ':PedidoCSV');                                                                       
 })->add(\VerificacionMiddleware::class . ':VerificarSocio'); 
 
 
