@@ -1,0 +1,13 @@
+[
+    [
+        {
+            "id": 98,
+            "nombreCliente": "elpepe",
+            "codigo": "hns64",
+            "importe": 760,
+            "idMesa": 7,
+            "foto": "hns64.png",
+            "available": 1
+        }
+    ]
+]
